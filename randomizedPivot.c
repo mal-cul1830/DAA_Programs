@@ -79,7 +79,7 @@ int randomizingPartition(int a[], int low, int high, int type = 0){
 
 void quickSort(int a[], int low, int high, ){
     if (low < high){
-        int pivot = partitionLomuto(arr, low, high);
+        int pivot = randomizingPartition(arr, low, high);
 
         quickSort(a, low, pivot);
         quickSort(a, pivot + 1, high);
