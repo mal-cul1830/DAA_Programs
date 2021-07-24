@@ -27,6 +27,31 @@ int partitionLomuto(int a[], int low, int high){
     return i;
 }
 
+int partitionHoares(int a[], int low, int high){
+    int pivot = a[low];
+
+    int i, j; 
+    i = low - 1; 
+    j = high + 1; 
+
+    while(1){
+        do{
+            i++; 
+        }while(a[i] < pivot); //finding uneven element at the left
+
+        do{
+            j--
+        }while(a[j] > pivot); //finding uneven element at the right
+
+        if(i >= j)
+            return j;
+        else
+            swap(a[i], a[j]);
+        
+    }
+    return -1; // error code 
+}
+
 void quickSort(int a[], int low, int high, ){
     if (low < high){
         int pivot = partitionLomuto(arr, low, high);
