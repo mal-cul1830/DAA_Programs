@@ -9,7 +9,7 @@ void swap(int *a, int *b){
     *b = temp;
 }
 
-int partitionHoares(int a[], int low, int high){
+int partitionLomuto(int a[], int low, int high){
     int pivot = a[high];
     int i, j;
 
