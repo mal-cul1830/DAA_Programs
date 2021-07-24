@@ -2,6 +2,11 @@
 //randomly generated pivot further improves time complexity
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
+
+void init_random(){
+    srand(time(NULL)); //seeding random in system time
+}
 
 void swap(int *a, int *b){
     int temp = *a;
@@ -52,6 +57,26 @@ int partitionHoares(int a[], int low, int high){
     return -1; // error code 
 }
 
+int randomizingPartition(int a[], int low, int high, int type = 0){
+    //0 : Hoare's Partition, 1: Lomuto's Partition
+    if(high == low)
+        return high;
+
+    int randomNo = rand()%(high - low) + low;
+    swap(a[randomNo], a[high]);
+    
+    switch (type)
+    {
+        default:
+            printf("\nEnter valid type. Setting default type as Hoares. \n");
+        case 0:
+            return partitionHoares(a, low, high);
+        case 1:
+            return partitionLomuto(a, low, high);
+    }
+
+}
+
 void quickSort(int a[], int low, int high, ){
     if (low < high){
         int pivot = partitionLomuto(arr, low, high);
@@ -61,5 +86,6 @@ void quickSort(int a[], int low, int high, ){
     }
 }
 int main(){
+    init_random();
     
 }
