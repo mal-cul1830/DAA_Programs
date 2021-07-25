@@ -24,7 +24,7 @@ void read_array(float a[], int n, char *message){
         printf(message);
     for(int i = 0; i<n ; ++i){
         scanf("%f", &a[i]);
-        printf("read %f, %d \n", a[i], i);
+        //printf("read %f, %d \n", a[i], i);
     }
 }
 
@@ -77,7 +77,7 @@ void printList(Node head){
     if(head == NULL)
         return;
     Node temp = head;
-    printf("\n Printing list : \n");
+    //printf("\n Printing list : \n");
     while(temp!=NULL){
         printf("%f -> ", temp->key);
         temp = temp->next;
@@ -95,11 +95,11 @@ void bucketSort(float a[], int n){
 
         buckets[index%n] = add(buckets[index%n], a[i]);
 
-        printf("Printing list!  %d ", index%n);
-        printList(buckets[index%n]);  
+        //printf("Printing list!  %d ", index%n);
+        //printList(buckets[index%n]);  
     }
 
-    print_array(concatLists(buckets, n), n, "\nFinal : \n");
+    print_array(concatLists(buckets, n), n, "\nSorted Array : \n");
 }
 
 void test(){
@@ -108,7 +108,7 @@ void test(){
                         (float)0.665 };
                         
     int n = sizeof(arr)/sizeof(float);
-    print_array(arr, n, "\nPrinting Array : \n");
+    print_array(arr, n, "\nUnorted Array : \n");
     bucketSort(arr, n);
 
 }
