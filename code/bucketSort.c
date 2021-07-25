@@ -57,6 +57,47 @@ Node add(Node head, float val){
     return head;
 }
 
+Node InsertionSort(Node head){
+    Node temp, cur, t1, nodeList; 
+    if(head == NULL || head->next == NULL)
+        return head;
+    
+    nodeList = head;
+    nodeList->next = NULL;
+    cur = head->next;
+
+    while(cur!=NULL){
+        if(nodeList->key > cur->key){
+            temp = cur;
+            cur = cur->next;
+
+            temp->next = nodeList;
+            nodeList = temp;
+            continue;
+        }
+
+        for(temp = nodeList ; temp->next != NULL ; temp = temp->next){
+            if(temp->next->key > cur->key)
+                break;
+        }
+
+        if(temp->next != NULL){
+            t1 = cur;
+            cur = cur->next;
+            t1->next = temp->next;
+            temp->next = t1;
+            continue;
+        }else{
+            temp->next = cur;
+            cur = cur->next;
+
+            temp->next->next = NULL;
+        }
+
+        return nodeList;
+    }
+}
+
 float *concatLists(Node a[], int n){
     int index = 0;
     float *final = (float *)malloc(n*sizeof(float));
@@ -99,6 +140,11 @@ void bucketSort(float a[], int n){
         //printList(buckets[index%n]);  
     }
 
+    for(int i = 0; i<n ; ++i){
+        buckets[i] = InsertionSort(head);
+        printList(buckets[i]);
+    }
+    
     print_array(concatLists(buckets, n), n, "\nSorted Array : \n");
 }
 
