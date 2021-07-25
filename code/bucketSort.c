@@ -158,7 +158,7 @@ void test(){
                         (float)0.665 };
                         
     int n = sizeof(arr)/sizeof(float);
-    print_array(arr, n, "\nUnorted Array : \n");
+    print_array(arr, n, "\nUnsorted Array : \n");
     bucketSort(arr, n);
 
 }
