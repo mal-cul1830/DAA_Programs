@@ -43,6 +43,18 @@ Node createNode(float val){
     return newNode;
 }
 
+void printList(Node head){
+    if(head == NULL)
+        return;
+    Node temp = head;
+    //printf("\n Printing list : \n");
+    while(temp!=NULL){
+        printf("%f -> ", temp->key);
+        temp = temp->next;
+    }
+    printf("NULL \n");
+}
+
 Node add(Node head, float val){
     Node newNode = createNode(val);
     if(head == NULL){
@@ -93,9 +105,11 @@ Node InsertionSort(Node head){
 
             temp->next->next = NULL;
         }
-
-        return nodeList;
+        
     }
+    printf("\nSorted : \n");
+    printList(nodeList);
+    return nodeList;
 }
 
 float *concatLists(Node a[], int n){
@@ -114,17 +128,7 @@ float *concatLists(Node a[], int n){
     return final;
 }
 
-void printList(Node head){
-    if(head == NULL)
-        return;
-    Node temp = head;
-    //printf("\n Printing list : \n");
-    while(temp!=NULL){
-        printf("%f -> ", temp->key);
-        temp = temp->next;
-    }
-    printf("NULL \n");
-}
+
 
 void bucketSort(float a[], int n){
     Node buckets[n];
@@ -141,10 +145,10 @@ void bucketSort(float a[], int n){
     }
 
     for(int i = 0; i<n ; ++i){
-        buckets[i] = InsertionSort(head);
+        buckets[i] = InsertionSort(buckets[i]);
         printList(buckets[i]);
     }
-    
+
     print_array(concatLists(buckets, n), n, "\nSorted Array : \n");
 }
 
