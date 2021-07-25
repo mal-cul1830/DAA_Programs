@@ -7,6 +7,12 @@
 void init_random(){
     srand(time(NULL)); //seeding random in system time
 }
+void read_array(int a[], int n, char *message){
+    if(message!=NULL)
+        printf(message);
+    for(int i = 0; i<n ; ++i)
+        scanf("%d", &a[i]);
+}
 
 void print_array(int a[], int n, char *message){
     if(message!=NULL)
@@ -110,12 +116,6 @@ void quickSort(int a[], int low, int high, int type){
     }
 }
 
-void read_array(int a[], int n, char *message){
-    if(message!=NULL)
-        printf(message);
-    for(int i = 0; i<n ; ++i)
-        scanf("%d", &a[i]);
-}
 int main(){
 
     int n;
