@@ -59,3 +59,19 @@ void shellSort(int a[], int n){
 
     print_array(a, n, "\nFinal, Sorted Array (Shell Sort) : \n");
 }
+
+int main(){
+    int n;
+    printf("Enter size of array : ");
+    scanf("%d", &n);
+
+    int *a = (int *)calloc(n , sizeof(int));
+
+    read_array(a, n, "\nEnter array : \n");
+
+    print_array(a, n, "\nUnsorted Array : \n");
+
+    shellSort(a, n);
+
+    return 0;
+}
