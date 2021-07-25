@@ -11,12 +11,17 @@ void init_random(){
 void print_array(int a[], int n, char *message){
     if(message!=NULL)
         printf(message);
-    for(int i = 0; i<n ; ++i)
+
+    int i; 
+
+    for(i = 0; i< n-1 ; ++i)
         printf("%d , ", a[i]);
+    printf("%d\n", a[i]);
 }
 
 void copy_array(int source[], int destination[], int n){
-    for(int i = 0; i < n ; ++i)
+    int i;
+    for(i = 0; i < n ; ++i)
         destination[i] = source[i];
 
     printf("Array copy done. \n");
@@ -35,7 +40,9 @@ int partitionLomuto(int a[], int low, int high){
     i = low; 
 
     for(j = low; j < high ; ++j){
+        print_array(a, (high - low + 1), NULL );
         if(a[j] <= pivot){
+            printf("%d %d \n", a[i], a[j]);
             swap(&a[i], &a[j]);
             ++i;
         }
@@ -123,11 +130,11 @@ int main(){
     read_array(a_hoares, n, "\nEnter array : \n");
     copy_array(a_hoares, a_lomutos, n);
 
-    printf("\nHoare's Randomized Partiton : \n");
+    /*printf("\nHoare's Randomized Partiton : \n");
     quickSort(a_hoares, 0, n-1, 0); // randomized hoares partition 
-    print_array(a_hoares, n, "\nArray after Randomized Quicksort & Hoare's Partition : \n");
+    print_array(a_hoares, n, "\nArray after Randomized Quicksort & Hoare's Partition : \n"); */
 
-    /*printf("\nLomuto's Randomized Partiton : \n");
+    printf("\nLomuto's Randomized Partiton : \n");
     quickSort(a_lomutos, 0, n-1, 1); // randomized lomutos partition 
-    print_array(a_lomutos, n, NULL);*/
+    print_array(a_lomutos, n, NULL);
 }
