@@ -34,6 +34,17 @@ void printList(Node head){
     printf("NULL \n");
 }
 
+void bucketSort(float a[], int n){
+    Node buckets[n];
+    int index; 
+    for(int i = 0 ; i<n; ++i){
+        index = a[i]*n;
+
+        add(buckets[index%n], a[i]);
+        printList(buckets[index%n]);
+    }
+}
+
 int main(){
     
 }

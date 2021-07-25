@@ -130,11 +130,11 @@ int main(){
     read_array(a_hoares, n, "\nEnter array : \n");
     copy_array(a_hoares, a_lomutos, n);
 
-    /*printf("\nHoare's Randomized Partiton : \n");
+    printf("\nHoare's Randomized Partiton : \n");
     quickSort(a_hoares, 0, n-1, 0); // randomized hoares partition 
-    print_array(a_hoares, n, "\nArray after Randomized Quicksort & Hoare's Partition : \n"); */
+    print_array(a_hoares, n, "\nArray after Randomized Quicksort & Hoare's Partition : \n");
 
     printf("\nLomuto's Randomized Partiton : \n");
     quickSort(a_lomutos, 0, n-1, 1); // randomized lomutos partition 
-    print_array(a_lomutos, n, NULL);
+    print_array(a_lomutos, n, "\nArray after Lomuto's Quicksort & Hoare's Partition : \n");
 }
