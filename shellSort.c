@@ -40,3 +40,22 @@ int gapCalc(int n, int d){
     int gap = floor(n/pow(2, d));
     return gap;
 }
+
+
+void shellSort(int a[], int n){
+    int gap, i, j, temp, d = 1;
+
+    while(gap = gapCalc(n, d)){
+        for(i = gap; i < n; ++i){
+            temp = a[i];
+            
+            for(j = i; j >= gap && a[j - gap] > temp ; j -= gap)
+                a[j] = a[j-gap];
+            
+            a[j] = temp;
+        }
+        ++d;
+    }
+
+    print_array(a, n, "\nFinal, Sorted Array (Shell Sort) : \n");
+}
