@@ -8,6 +8,25 @@ struct node{
 };
 typedef struct node *Node;
 
+void print_array(int a[], int n, char *message){
+    if(message!=NULL)
+        printf(message);
+
+    int i; 
+
+    for(i = 0; i< n-1 ; ++i)
+        printf("%d , ", a[i]);
+    printf("%d\n", a[i]);
+}
+
+void copy_array(int source[], int destination[], int n){
+    int i;
+    for(i = 0; i < n ; ++i)
+        destination[i] = source[i];
+
+    printf("Array copy done. \n");
+}
+
 Node createNode(float val){
     Node newNode = (Node)malloc(sizeof(struct node));
     newNode->key = val;
